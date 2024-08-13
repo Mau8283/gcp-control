@@ -81,34 +81,45 @@
     <h3>CPU Usage (%)</h3>
     <ul>
         {% for usage in metrics.cpu_usage %}
-        <li>{{ usage }}%</li>
+            <li>{{ usage }}%</li>
         {% endfor %}
+        {% if metrics.cpu_usage[0] == 0 %}
+            <li>No se pudieron obtener métricas de CPU.</li>
+        {% endif %}
     </ul>
 </div>
 <div>
     <h3>RAM Usage (MB)</h3>
     <ul>
         {% for usage in metrics.ram_usage %}
-        <li>{{ usage }} MB</li>
+            <li>{{ usage }} MB</li>
         {% endfor %}
+        {% if metrics.ram_usage[0] == 0 %}
+            <li>No se pudieron obtener métricas de RAM.</li>
+        {% endif %}
     </ul>
 </div>
 <div>
     <h3>GPU Usage (%)</h3>
     <ul>
         {% for usage in metrics.gpu_usage %}
-        <li>{{ usage }}%</li>
+            <li>{{ usage }}%</li>
         {% endfor %}
+        {% if metrics.gpu_usage[0] == 0 %}
+            <li>No se pudieron obtener métricas de GPU.</li>
+        {% endif %}
     </ul>
 </div>
 <div>
     <h3>Disk Space Used (GB)</h3>
     <ul>
         {% for space in metrics.disk_space %}
-        <li>{{ space / (1024 ** 3) | round(2) }} GB</li>  <!-- Convertir bytes a GB -->
+            <li>{{ space / (1024 ** 3) | round(2) }} GB</li>
         {% endfor %}
+        {% if metrics.disk_space[0] == 0 %}
+            <li>No se pudo obtener información de espacio en disco.</li>
+        {% endif %}
     </ul>
-</div>
-    
+</div>    
 </body>
 </html>
