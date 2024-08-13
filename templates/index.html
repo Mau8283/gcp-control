@@ -75,5 +75,40 @@
         <button class="stop" type="submit">Stop Instance</button>
     </form>
 
+<!-- Agregar sección para mostrar métricas -->
+<h2>Resource Usage</h2>
+<div>
+    <h3>CPU Usage (%)</h3>
+    <ul>
+        {% for usage in metrics.cpu_usage %}
+        <li>{{ usage }}%</li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    <h3>RAM Usage (MB)</h3>
+    <ul>
+        {% for usage in metrics.ram_usage %}
+        <li>{{ usage }} MB</li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    <h3>GPU Usage (%)</h3>
+    <ul>
+        {% for usage in metrics.gpu_usage %}
+        <li>{{ usage }}%</li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    <h3>Disk Space Used (GB)</h3>
+    <ul>
+        {% for space in metrics.disk_space %}
+        <li>{{ space / (1024 ** 3) | round(2) }} GB</li>  <!-- Convertir bytes a GB -->
+        {% endfor %}
+    </ul>
+</div>
+    
 </body>
 </html>
