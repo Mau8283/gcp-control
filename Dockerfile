@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Instalar las dependencias
-RUN pip install --no-cache-dir Flask google-api-python-client gunicorn
+RUN pip install --no-cache-dir Flask google-api-python-client google-cloud-monitoring gunicorn
 
 # Comando para correr la aplicación
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
