@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Cloud Instance Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #fff;
+        }
+        .status {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        .status-running {
+            color: #4CAF50;
+        }
+        .status-stopped {
+            color: #f44336;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+        button.start {
+            background-color: #4CAF50;
+        }
+        button.stop {
+            background-color: #f44336;
+        }
+        .password-input {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Cloud Instance Control</h1>
+    <div id="instance-status" class="status">
+        {% if status == 'RUNNING' %}
+        <span class="status-running">Instance is RUNNING</span>
+        {% else %}
+        <span class="status-stopped">Instance is STOPPED</span>
+        {% endif %}
+    </div>
+    <br>
+
+    <!-- Formulario para iniciar la instancia -->
+    <form method="post" action="/start">
+        <div class="password-input">
+            <input type="password" name="password" placeholder="Enter password" required>
+        </div>
+        <button class="start" type="submit">Start Instance</button>
+    </form>
+
+    <!-- Formulario para detener la instancia -->
+    <form method="post" action="/stop">
+        <div class="password-input">
+            <input type="password" name="password" placeholder="Enter password" required>
+        </div>
+        <button class="stop" type="submit">Stop Instance</button>
+    </form>
+
+</body>
+</html>
