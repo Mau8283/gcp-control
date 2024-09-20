@@ -5,10 +5,10 @@ import time
 
 app = Flask(__name__)
 
-project = "micro-answer-431212-p0"
-zone = "europe-west4-c"
-instance_name = "instancia-pro"
-PASSWORD = "yellbautista"  # Cambia esto por la contraseña que desees
+project = "manifest-wind-436012-i6"
+zone = "europe-west4-b"
+instance_name = "instance-20240920-083450"
+PASSWORD = "patry"  # Cambia esto por la contraseña que desees
 
 def get_instance_status():
     compute = googleapiclient.discovery.build('compute', 'v1')
